@@ -9,9 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.POS">
+
+
         <activity
-            android:name=".LoginActivity"
-            android:theme="@style/Theme.POS.NoActionBar"
+            android:name=".MainActivity"
             android:exported="true">
 
             <intent-filter>
@@ -21,11 +22,16 @@
             </intent-filter>
 
         </activity>
+
         <activity
-            android:name=".SplashScreenActivity"
-            android:exported="true">
+            android:name=".LoginActivity"
+            android:exported="true"
+            android:theme="@style/Theme.POS.NoActionBar">
 
         </activity>
+        <activity
+            android:name=".SplashScreenActivity"
+            android:exported="true"></activity>
     </application>
 
 </manifest>

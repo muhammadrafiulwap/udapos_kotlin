@@ -4,5 +4,14 @@
     <string name="label_email">Email</string>
     <string name="label_password">Password</string>
     <string name="label_login">Login</string>
+
     <string name="message_email_invalid">Email invalid</string>
+
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="label_total_transaction">Transaction</string>
+    <string name="label_total_income">Income</string>
 </resources>
