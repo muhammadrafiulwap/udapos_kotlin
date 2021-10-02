@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">POS</string>
+    <string name="label_sign_in">Sign in to Continue</string>
+    <string name="label_email">Email</string>
+    <string name="label_password">Password</string>
+    <string name="label_login">Login</string>
+</resources>
