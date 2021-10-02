@@ -24,16 +24,16 @@
         android:layout_marginTop="24dp"
         android:text="@string/label_sign_in"
         android:textColor="@color/black"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageLogo" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/textInputLayoutEmail"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="350dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
@@ -46,20 +46,22 @@
         app:startIconDrawable="@drawable/ic_email">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
             android:hint="@string/label_email" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout2"
-        android:layout_width="350dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutEmail"
         app:startIconContentDescription="@string/label_password"
         app:startIconDrawable="@drawable/ic_lock"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -73,11 +75,9 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginStart="30dp"
         android:text="@string/label_login"
         android:backgroundTint="@color/main_color"
         app:layout_constraintEnd_toEndOf="parent"
