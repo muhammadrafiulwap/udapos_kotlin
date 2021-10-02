@@ -14,4 +14,8 @@
     <string name="title_notifications">Notifications</string>
     <string name="label_total_transaction">Transaction</string>
     <string name="label_total_income">Income</string>
+    <string name="label_term_and_condition">Term and Condition</string>
+    <string name="label_privacy_policy">Privacy Policy</string>
+    <string name="label_help">Help</string>
+    <string name="label_about_app">About App</string>
 </resources>
