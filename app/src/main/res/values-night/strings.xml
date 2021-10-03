@@ -11,4 +11,5 @@
     <string name="label_privacy_policy">Privacy Policy</string>
     <string name="label_help">Help</string>
     <string name="label_about_app">About App</string>
+    <string name="label_search">Search</string>
 </resources>
