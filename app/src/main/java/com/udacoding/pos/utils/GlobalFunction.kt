@@ -74,9 +74,9 @@ fun validationPassword(password: String?): Boolean {
     return matcher.matches()
 }
 
-fun toRinggit(amount: Double?): String {
-    val COUNTRY = "MY"
-    val LANGUAGE = "en"
+fun toRupiah(amount: Double?): String {
+    val COUNTRY = "ID"
+    val LANGUAGE = "ms"
     val str = NumberFormat.getCurrencyInstance(Locale(LANGUAGE, COUNTRY)).format(amount)
     return str
 }

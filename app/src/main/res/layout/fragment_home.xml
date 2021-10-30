@@ -41,18 +41,20 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/textFullName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="MUHAMMAD RAFI ULWA PRATAMA"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black" />
 
                 <TextView
+                    android:id="@+id/textEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1601081019"
+                    android:textColor="@color/black"
                     android:textSize="11sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -65,28 +67,24 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <AutoCompleteTextView
+        android:id="@+id/textViewSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        app:endIconMode="clear_text"
+        android:background="@drawable/background_gray_round"
+        android:drawableStart="@drawable/ic_search"
+        android:drawablePadding="12dp"
+        android:focusable="false"
+        android:hint="@string/label_search"
+        android:padding="10sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:startIconContentDescription="@string/label_email"
-        app:startIconDrawable="@drawable/ic_search">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/inputEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/label_search"
-            android:inputType="textEmailAddress" />
-    </com.google.android.material.textfield.TextInputLayout>
+        app:startIconContentDescription="@string/label_email"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listProduct"
@@ -96,7 +94,7 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSearch"
         tools:listitem="@layout/item_product" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -110,4 +108,28 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:focusable="true" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardTotalPay"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardBackgroundColor="@color/main_color"
+        app:cardCornerRadius="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/floatingActionButton"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/textTotalPay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            tools:text="RM0.00" />
+
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

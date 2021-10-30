@@ -12,10 +12,16 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.udacoding.pos.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_customer"
+        android:name="com.udacoding.pos.ui.customer.CustomerFragment"
+        android:label="@string/title_customer"
+        tools:layout="@layout/fragment_customer" />
+
+    <fragment
+        android:id="@+id/navigation_history"
+        android:name="com.udacoding.pos.ui.history.HistoryFragment"
+        android:label="@string/title_history"
+        tools:layout="@layout/fragment_history" />
 
     <fragment
         android:id="@+id/navigation_profile"

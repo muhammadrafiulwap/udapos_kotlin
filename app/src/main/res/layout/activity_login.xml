@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".ui.login.LoginActivity">
 
     <ImageView
         android:id="@+id/imageLogo"
@@ -54,7 +54,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2"
+        android:id="@+id/textInputLayoutPassword"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -67,11 +67,24 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/label_password"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/label_login"
+        android:visibility="gone"
+        android:backgroundTint="@color/main_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPassword" />
 
     <Button
         android:id="@+id/button"
@@ -82,7 +95,7 @@
         android:backgroundTint="@color/main_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPassword" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
