@@ -3,8 +3,28 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="app/src/main/res/drawable/background_gray_round.xml" value="0.22760416666666666" />
+        <entry key="app/src/main/res/drawable/background_main_round.xml" value="0.22760416666666666" />
+        <entry key="app/src/main/res/drawable/ic_add.xml" value="0.22760416666666666" />
+        <entry key="app/src/main/res/drawable/ic_arrow_right.xml" value="0.13518518518518519" />
+        <entry key="app/src/main/res/drawable/ic_phone.xml" value="0.13518518518518519" />
+        <entry key="app/src/main/res/layout/activity_cart.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_transaction.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/dialog_choose_payment.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_cash.xml" value="0.21145833333333333" />
+        <entry key="app/src/main/res/layout/fragment_customer.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_detail_product.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/fragment_history.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/fragment_product_dialog_list_dialog.xml" value="0.21145833333333333" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.21145833333333333" />
+        <entry key="app/src/main/res/layout/item_cart.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/item_customer.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/item_product.xml" value="0.21145833333333333" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.33" />
       </map>
     </option>
   </component>

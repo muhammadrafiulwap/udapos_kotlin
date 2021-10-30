@@ -10,6 +10,8 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
+    <string name="title_customer">Customer</string>
+    <string name="title_history">History</string>
     <string name="title_profile">Profile</string>
     <string name="title_notifications">Notifications</string>
     <string name="label_total_transaction">Transaction</string>
@@ -19,4 +21,15 @@
     <string name="label_help">Help</string>
     <string name="label_about_app">About App</string>
     <string name="label_search">Search</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="stock_kosong">Stock Kosong</string>
+    <string name="back_to_list">Back to list</string>
+    <string name="update_cart">Update Cart</string>
+    <string name="delete_from_cart">Delete from Cart</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="success_update_cart">Success update Cart</string>
+    <string name="success_delete_cart">Success delete Cart</string>
+    <string name="email_required">Email required</string>
+    <string name="password_required">Password required</string>
 </resources>
