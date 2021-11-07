@@ -1,13 +1,27 @@
 package com.udacoding.pos.ui.home
 
+import android.Manifest
+import android.app.Activity
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.budiyev.android.codescanner.AutoFocusMode
+import com.budiyev.android.codescanner.CodeScanner
+import com.budiyev.android.codescanner.DecodeCallback
+import com.budiyev.android.codescanner.ErrorCallback
+import com.budiyev.android.codescanner.ScanMode
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -16,12 +30,16 @@ import com.udacoding.pos.R
 import com.udacoding.pos.SessionManager
 import com.udacoding.pos.databinding.FragmentDetailProductBinding
 import com.udacoding.pos.databinding.FragmentHomeBinding
+import com.udacoding.pos.databinding.FragmentScanBinding
 import com.udacoding.pos.room.model.EntityCart
 import com.udacoding.pos.ui.cart.CartActivity
 import com.udacoding.pos.ui.home.adapter.ProdukAdapter
 import com.udacoding.pos.ui.home.model.DataItem
 import com.udacoding.pos.ui.home.viewmodel.HomeViewModel
+import com.udacoding.pos.ui.scanqr.SqanQRActivity
 import com.udacoding.pos.utils.*
+
+private const val CAMERA_REQUEST_CODE = 1
 
 class HomeFragment : Fragment() {
 
@@ -31,7 +49,11 @@ class HomeFragment : Fragment() {
 
     lateinit var fragmentDetailProduct: FragmentDetailProductBinding
 
+    lateinit var fragmentScan: FragmentScanBinding
+
     lateinit var bottomSheet: BottomSheetDialog
+
+    lateinit var bottomSheetScan: BottomSheetDialog
 
     lateinit var viewModel: HomeViewModel
 
@@ -42,6 +64,8 @@ class HomeFragment : Fragment() {
     private var pay_total_item: Double? = null
 
     private var item_product: DataItem? = null
+
+    private lateinit var codeScanner: CodeScanner
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -60,10 +84,30 @@ class HomeFragment : Fragment() {
 
         session = SessionManager(view.context)
 
-        initView()
+        initView(view)
         attachObserve()
 
     }
+
+    private fun setupPermission(view: View) {
+        val permission = ContextCompat.checkSelfPermission(view.context, Manifest.permission.CAMERA)
+
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            makeRequest()
+        } else {
+            scanQR(view)
+        }
+    }
+
+    private fun makeRequest() {
+        activity?.let {
+            ActivityCompat.requestPermissions(
+                it, arrayOf(Manifest.permission.CAMERA),
+                CAMERA_REQUEST_CODE
+            )
+        }
+    }
+
 
     private fun showProduct(data: List<DataItem>?) {
         binding.listProduct.adapter = context?.let {
@@ -119,6 +163,10 @@ class HomeFragment : Fragment() {
 
             } else if (id_cart > 0) {
 
+                if (item?.stock == 1) {
+                    buttonAdd.hide()
+                }
+
                 flag_update = true
                 last_count = qty
                 textCount.text = qty.toString()
@@ -134,6 +182,10 @@ class HomeFragment : Fragment() {
                 }
 
             } else {
+
+                if (item?.stock == 1) {
+                    buttonAdd.hide()
+                }
 
                 flag_update = false
                 last_count = 1
@@ -188,6 +240,57 @@ class HomeFragment : Fragment() {
 
         }
     }
+
+    private fun scanQR(view: View) {
+
+        fragmentScan =
+            FragmentScanBinding.bind(
+                View.inflate(
+                    context,
+                    R.layout.fragment_scan,
+                    null
+                )
+            )
+
+        codeScanner = CodeScanner(view.context, fragmentScan.scannerView)
+
+        codeScanner.startPreview()
+
+        bottomSheetScan = context?.let {
+            BottomSheetDialog(it).apply {
+                setContentView(fragmentScan.root)
+                show()
+            }
+        } ?: return
+
+        codeScanner.apply {
+            camera = CodeScanner.CAMERA_BACK
+            formats = CodeScanner.ALL_FORMATS
+
+            autoFocusMode = AutoFocusMode.SAFE
+            scanMode = ScanMode.CONTINUOUS
+            isAutoFocusEnabled = true
+            isFlashEnabled = false
+
+            decodeCallback = DecodeCallback {
+
+                activity?.runOnUiThread {
+//                    Toast.makeText(context, it.text, Toast.LENGTH_SHORT).show()
+                    viewModel.getProductById(it.text.toInt())
+                    codeScanner.stopPreview()
+                    bottomSheetScan.dismiss()
+                }
+            }
+
+            errorCallback = ErrorCallback {
+                activity?.runOnUiThread {
+                    Log.e("startScan:", "Camera init error: ${it.message}")
+                }
+            }
+        }
+
+    }
+
 
     private fun changeButtonAdd(it: Int?) {
         when (it) {
@@ -291,6 +394,11 @@ class HomeFragment : Fragment() {
         with(viewModel) {
             product.observe(viewLifecycleOwner, { showProduct(it?.data) })
 
+            product_by_id.observe(viewLifecycleOwner, {
+                item_product = it?.data?.get(0)
+                viewModel.checkAvailableOnCart(it?.data?.get(0)?.id ?: 0)
+            })
+
             error.observe(viewLifecycleOwner, { showError(activity?.applicationContext, it) })
 
             count.observe(viewLifecycleOwner, {
@@ -367,10 +475,10 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun initView() {
+    private fun initView(view: View) {
 
         with(viewModel) {
-            getProduct()
+            getProduct(null)
             getTotalPay()
         }
 
@@ -379,6 +487,12 @@ class HomeFragment : Fragment() {
             textEmail.text = session.email_user
             cardTotalPay.setOnClickListener {
                 activity?.openActivity(CartActivity::class.java)
+            }
+
+            fabScan.setOnClickListener {
+
+                setupPermission(view)
+
             }
         }
     }

@@ -93,13 +93,14 @@
                             android:text="@string/label_total_transaction"/>
 
                         <TextView
+                            android:id="@+id/textTotalTransaction"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="Rp100,000"
                             android:textColor="@color/main_color"
                             android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="3dp"
-                            android:text="Rp100,000"/>
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
@@ -142,13 +143,14 @@
                             android:text="@string/label_total_income"/>
 
                         <TextView
+                            android:id="@+id/textTotalIncome"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="Rp150,000"
                             android:textColor="@color/main_color"
                             android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="3dp"
-                            android:text="Rp150,000"/>
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 

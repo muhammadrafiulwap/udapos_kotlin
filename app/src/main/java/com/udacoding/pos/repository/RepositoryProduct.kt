@@ -20,11 +20,12 @@ class RepositoryProduct(val context: Context) {
     private val database = Database.getInstance(context)
 
     fun repoGetProduct(
+        id_produk: Int?,
         responHandler: (ResponseProduct) -> Unit,
         errorhandler: (Throwable) -> Unit
     ) {
         compositeDisposable.add(
-            api.apiGetProduct()
+            api.apiGetProduct(id_produk)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

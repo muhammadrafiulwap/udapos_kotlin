@@ -183,13 +183,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="15dp"
                             android:text="Note"
-                            android:textStyle="bold"
-                            android:textColor="@color/main_color"/>
+                            android:textColor="@color/main_color"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
@@ -197,25 +198,18 @@
                         android:id="@+id/editTextNote"
                         android:layout_width="match_parent"
                         android:layout_height="105dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
                         android:gravity="start"
                         android:minHeight="90dp"
                         android:padding="10dp"
                         android:shadowColor="@color/main_color"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
                         android:textColor="@android:color/black"
                         android:textSize="14sp" />
 
                 </LinearLayout>
 
             </androidx.core.widget.NestedScrollView>
-
-            <ProgressBar
-                android:id="@+id/progressBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:visibility="gone" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewTotalPay"
@@ -325,6 +319,14 @@
                         android:text="Complete Payment"
                         android:textColor="@android:color/white"
                         android:textStyle="bold" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBar"
+                        android:layout_marginTop="15sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:visibility="gone" />
 
                 </LinearLayout>
 

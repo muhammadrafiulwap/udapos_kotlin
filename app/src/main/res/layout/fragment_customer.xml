@@ -63,4 +63,50 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewSearch"
         tools:listitem="@layout/item_customer" />
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer"
+        android:layout_width="match_parent"
+        android:layout_height="610dp"
+        android:paddingTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSearch">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include layout="@layout/item_customer_shimmer" />
+
+            <include layout="@layout/item_customer_shimmer" />
+
+            <include layout="@layout/item_customer_shimmer" />
+
+            <include layout="@layout/item_customer_shimmer" />
+
+            <include layout="@layout/item_customer_shimmer" />
+
+            <include layout="@layout/item_customer_shimmer" />
+
+            <include layout="@layout/item_customer_shimmer" />
+
+            <include layout="@layout/item_customer_shimmer" />
+
+            <include layout="@layout/item_customer_shimmer" />
+
+            <include layout="@layout/item_customer_shimmer" />
+
+            <include layout="@layout/item_customer_shimmer" />
+
+            <include layout="@layout/item_customer_shimmer" />
+
+            <include layout="@layout/item_customer_shimmer" />
+
+            <include layout="@layout/item_customer_shimmer" />
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

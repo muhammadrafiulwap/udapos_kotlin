@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.*
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.facebook.shimmer.ShimmerFrameLayout
 import com.google.android.material.snackbar.Snackbar
 
 fun Context.showAlert(title: String, message: String, cancel: Boolean) {
@@ -132,5 +133,13 @@ fun RecyclerView.show() {
 
 fun RecyclerView.hide() {
     visibility = View.INVISIBLE
+}
+
+fun ShimmerFrameLayout.show() {
+    visibility = View.VISIBLE
+}
+
+fun ShimmerFrameLayout.hide() {
+    visibility = View.GONE
 }
 

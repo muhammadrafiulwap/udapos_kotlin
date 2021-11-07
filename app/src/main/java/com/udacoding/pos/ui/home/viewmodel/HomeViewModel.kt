@@ -16,6 +16,9 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     private val _product = MutableLiveData<ResponseProduct>()
     val product: LiveData<ResponseProduct> = _product
 
+    private val _product_by_id = MutableLiveData<ResponseProduct>()
+    val product_by_id: LiveData<ResponseProduct> = _product_by_id
+
     private val _count = MutableLiveData<Int>()
     val count: LiveData<Int> = _count
 
@@ -55,13 +58,29 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     private val _error = MutableLiveData<Throwable>()
     val error: LiveData<Throwable> = _error
 
-    fun getProduct(){
+    fun getProduct(id_produk: Int?){
         _loading.value = true
         repository.repoGetProduct(
+            id_produk,
             {
                 _loading.value = false
                 if (it.isSuccess == true)
                     _product.value = it
+            }, {
+                _loading.value = false
+                _error.value= it
+            }
+        )
+    }
+
+    fun getProductById(id_produk: Int?){
+        _loading.value = true
+        repository.repoGetProduct(
+            id_produk,
+            {
+                _loading.value = false
+                if (it.isSuccess == true)
+                    _product_by_id.value = it
             }, {
                 _loading.value = false
                 _error.value= it

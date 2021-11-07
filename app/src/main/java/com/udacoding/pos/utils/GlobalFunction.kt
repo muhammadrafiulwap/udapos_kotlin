@@ -7,9 +7,12 @@ import android.graphics.BitmapFactory
 import android.util.Base64
 import android.widget.EditText
 import android.widget.ProgressBar
+import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
+import androidx.recyclerview.widget.RecyclerView
+import com.facebook.shimmer.ShimmerFrameLayout
 import com.google.android.material.textfield.TextInputLayout
 import java.io.ByteArrayOutputStream
 import java.text.NumberFormat
@@ -45,6 +48,18 @@ fun requiredTextInputLayout(it: Boolean?, editText: TextInputLayout, message: St
 fun requiredToast(context: Context, it: Boolean?, message: String?) {
     if (it == true) {
         showToast(context, message)
+    }
+}
+
+fun showShimmer(it: Boolean?, shimmer: ShimmerFrameLayout, data: RecyclerView) {
+    if (it == true) {
+        data.hide()
+        shimmer.show()
+        shimmer.startShimmer()
+    } else {
+        shimmer.stopShimmer()
+        shimmer.hide()
+        data.show()
     }
 }
 
@@ -97,9 +112,33 @@ fun formatDate(date: String?): String {
 fun formatDate1(date: String?): String {
     val inputFormat1 = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     val inputFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:SS")
-    val inputDate = inputFormat.parse(date)
+    val inputDate = inputFormat1.parse(date)
 
     val pattern = "dd-MM-yyyy HH:mm:SS"
+    val sdf = SimpleDateFormat(pattern)
+
+    return sdf.format(inputDate ?: "")
+}
+
+@SuppressLint("SimpleDateFormat")
+fun formatDateOnly(date: String?): String {
+    val inputFormat1 = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+    val inputFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:SS")
+    val inputDate = inputFormat1.parse(date)
+
+    val pattern = "dd.MM.yyyy"
+    val sdf = SimpleDateFormat(pattern)
+
+    return sdf.format(inputDate ?: "")
+}
+
+@SuppressLint("SimpleDateFormat")
+fun formatTimeOnly(date: String?): String {
+    val inputFormat1 = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+    val inputFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:SS")
+    val inputDate = inputFormat1.parse(date)
+
+    val pattern = "HH:mm:SS"
     val sdf = SimpleDateFormat(pattern)
 
     return sdf.format(inputDate ?: "")

@@ -81,4 +81,14 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-rxjava2:$room_version"
 
+    //code_scanner
+    implementation 'com.budiyev.android:code-scanner:2.1.0'
+
+    //Shimmer
+    //https://facebook.github.io/shimmer-android/
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
+    //generate pdf
+    implementation 'com.itextpdf:itextg:5.5.10'
+
 }

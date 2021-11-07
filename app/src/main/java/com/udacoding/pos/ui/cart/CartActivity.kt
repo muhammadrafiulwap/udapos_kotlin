@@ -28,8 +28,6 @@ class CartActivity : AppCompatActivity() {
         initView()
         attachObserve()
 
-
-
     }
 
     private fun showDataCart(it: List<EntityCart>?) {

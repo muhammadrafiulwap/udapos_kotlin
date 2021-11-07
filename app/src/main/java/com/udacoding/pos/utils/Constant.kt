@@ -6,7 +6,11 @@ fun emailPattern() : String {
 }
 
 fun domain() : String {
-    return "http://192.168.20.37/"
+    return "http://192.168.11.215/"
+}
+
+fun codeCustomer() : Int {
+    return 2
 }
 
 fun baseURL() : String {

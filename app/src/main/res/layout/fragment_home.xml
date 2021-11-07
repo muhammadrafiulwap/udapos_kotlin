@@ -98,7 +98,7 @@
         tools:listitem="@layout/item_product" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/fabScan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -118,7 +118,7 @@
         app:cardBackgroundColor="@color/main_color"
         app:cardCornerRadius="8dp"
         android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/floatingActionButton"
+        app:layout_constraintBottom_toTopOf="@+id/fabScan"
         app:layout_constraintEnd_toEndOf="parent">
 
         <TextView

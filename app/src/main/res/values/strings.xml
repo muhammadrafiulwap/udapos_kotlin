@@ -32,4 +32,7 @@
     <string name="success_delete_cart">Success delete Cart</string>
     <string name="email_required">Email required</string>
     <string name="password_required">Password required</string>
+    <string name="error">Error</string>
+    <string name="required">Require</string>
+    <string name="application_not_found">Application not found</string>
 </resources>

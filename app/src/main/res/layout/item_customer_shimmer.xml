@@ -13,8 +13,8 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         app:civ_border_width="2dp"
-        app:civ_border_color="@color/main_color"
-        tools:src="@drawable/profile_ex"/>
+        android:background="@color/smoothGray"
+        app:civ_border_color="@color/main_color" />
 
     <LinearLayout
         android:id="@+id/layout1"
@@ -29,8 +29,9 @@
             android:id="@+id/textCustomerName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Muhammad Rafi Ulwa Pratama"
             android:maxLines="1"
+            android:background="@color/smoothGray"
+            android:layout_marginRight="10dp"
             android:ellipsize="end"
             android:textColor="@android:color/black"
             android:textSize="18sp"
@@ -41,7 +42,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            tools:text="62854678678"
+            android:background="@color/smoothGray"
+            android:layout_marginRight="10dp"
             android:textColor="@color/dark_gray"
             android:textSize="14sp" />
 
